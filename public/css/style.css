@@ -1,0 +1,16 @@
+body{
+	overflow: hidden;
+}
+
+.box{
+	padding: 5px;
+	background-color: #FFF;
+	border: 1px solid #999;
+	-webkit-perspective: 2;
+	box-shadow: 5px 5px 10px #AAA;
+	top: 25%;
+	left: 25%;
+	position: absolute;
+	border-radius: 10px;
+}
+.box img{

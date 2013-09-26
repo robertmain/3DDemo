@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=1024, user-scalable=no">
+		<title><%= packageFile.name %> v<%= packageFile.version %></title>
+		<link rel="stylesheet" href="css/style.css" />
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="/js/jquery.js"></script>
+	</head>
+	<body>
+		
+		<!-- <img src="/img/winxp.png" class="box" /> -->
+		<div class="cursor" style="width: 100px; height: 100px; position: absolute; background-color: #EEE; border: 1px solid #999"></div>
+		<script>
+			var socket = io.connect();
+			socket.on('rotate', function(data){
+				// $('.box').css('-webkit-transform', 'rotateX(' + data.b + 'deg) rotateY(' + data.g + 'deg) rotateZ(' + data.a + 'deg)');
+				$('.cursor').css('top', data.a);
+				$('.cursor').css('left', "-"+data.b*100);
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=1024, user-scalable=no">
+		<title><%= packageFile.name %> v<%= packageFile.version %></title>
+		<link rel="stylesheet" href="css/style.css" />
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="/js/jquery.js"></script>
+	</head>
+	<body>
+		
+		<div class="box">
+			<img src="/img/winxp.png" />
+			<!-- <iframe width="640" height="480" src="//www.youtube.com/embed/Ssh71hePR8Q?autoplay=1&html5=1" frameborder="0" allowfullscreen></iframe> -->
+		</div>
+		<script>
+			var socket = io.connect();
+			socket.on('rotate', function(data){
+				$('.box').css('-webkit-transform', 'rotateX(' + data.b + 'deg) rotateY(' + data.g + 'deg) rotateZ(' + data.a + 'deg)');
+			});
+		</script>
+	</body>
+</html>

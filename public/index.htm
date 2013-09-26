@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=1024, user-scalable=no">
+		<title><%= packageFile.name %> v<%= packageFile.version %></title>
+		<link rel="stylesheet" href="css/style.css" />
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="/js/qr.js"></script>
+		<script src="/js/jquery.js"></script>
+	</head>
+	<body>
+		<script>
+			socket = io.connect();
+			socket.on('start_demo', function(){
+				window.location = 'http://<%= ip %>:<%= port %>/demo1'
+			});
+			var qrcode = qr('http://<%= ip %>:<%= port %>/phone', {
+				width: 800,
+				height: 800
+			});
+
+			document.body.appendChild(qrcode);
+		</script>
+	</body>
+</html>
